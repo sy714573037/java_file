@@ -42,6 +42,12 @@ public class Consts {
     /** 导出的目标文件位置 */
     public static String TARGET;
 
+    /** / */
+    public static final String FOLDER_SEPARATOR = "/";
+
+    /** . */
+    public static final String POINT_STRING = ".";
+
     static {
         InputStream filePathInputStream = ExportUtils.getFileInputStream(IMPORT_FILE_PATH);
         InputStream exportiInputStream = ExportUtils.getFileInputStream(EXPORT_FILE_PROP);

@@ -137,7 +137,7 @@ public class ExportUtils {
      * @return
      */
     public static String getFileName(String path) {
-        return path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
+        return path.substring(path.lastIndexOf(Consts.FOLDER_SEPARATOR) + 1, path.lastIndexOf(Consts.POINT_STRING));
     }
 
     /**
