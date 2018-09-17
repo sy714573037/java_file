@@ -1,4 +1,4 @@
-package mytest;
+package com.test.util;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,16 +44,16 @@ public class ExportUtils {
     public static void copyFile() {
         File realFile = null;
         File targetFile = null;
-        for (String filePath : FileTest.fileList) {
+        for (String filePath : FileMain.fileList) {
             filePath = StringUtils.trim(filePath);
             if (StringUtils.isEmpty(filePath) || StringUtils.startsWith(filePath, "#")) {
                 continue;
             }
             // 文件实际路径
-            String realPath = FileTest.WORKSPACE + filePath;
+            String realPath = FileMain.WORKSPACE + filePath;
             realFile = new File(realPath);
             // 目标文件路径
-            String targetPath = FileTest.TARGET + filePath;
+            String targetPath = FileMain.TARGET + filePath;
             // 父目录
             String parentPath = ExportUtils.getParentPath(realPath);
             // 创建目标文件夹
@@ -64,7 +64,7 @@ public class ExportUtils {
                 targetFile.mkdirs();
                 // 复制整个文件夹的文件
                 try {
-                    if (FileTest.CLAZZ.equals(FileTest.IMPORT_TYPE)) {
+                    if (FileMain.CLAZZ.equals(FileMain.IMPORT_TYPE)) {
                         realPath = realPath.replace("src/main/java", "target/classes").replace(".java", ".class");
                         realFile = new File(realPath);
                     }
@@ -78,7 +78,7 @@ public class ExportUtils {
                 }
                 // 复制文件
                 try {
-                    if (FileTest.CLAZZ.equals(FileTest.IMPORT_TYPE)) {
+                    if (FileMain.CLAZZ.equals(FileMain.IMPORT_TYPE)) {
                         realPath = realPath.replace("src/main/java", "target/classes").replace(".java", ".class");
                         realFile = new File(realPath);
                         targetPath = targetPath.replace(".java", ".class");

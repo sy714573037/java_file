@@ -1,4 +1,4 @@
-package mytest;
+package com.test.util;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,7 +13,7 @@ import org.apache.commons.io.IOUtils;
  * @date 2018/09/13
  */
 @SuppressWarnings("unchecked")
-public class FileTest {
+public class FileMain {
 
     private final static String FILE_PATH_FILE_NAME = "filepath.txt";
     private final static String EXPORT_FILE_NAME = "export.properties";
