@@ -7,6 +7,7 @@ import java.util.Objects;
 import java.util.Properties;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 配置信息
@@ -59,7 +60,7 @@ public class Consts {
                 }
             }
         }
-        IMPORT_TYPE = properties.getProperty("project.importType");
+        IMPORT_TYPE = StringUtils.lowerCase(properties.getProperty("project.importType"));
         WORKSPACE = properties.getProperty("project.workspace");
         TARGET = properties.getProperty("project.target");
 
