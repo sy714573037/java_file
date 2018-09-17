@@ -20,34 +20,17 @@ import com.google.common.collect.Lists;
 public class ExportUtils {
 
     /**
-     * 获取文件流
-     * 
-     * @param fileName
-     * @return
-     */
-    public static InputStream getFileInputStream(String fileName) {
-        InputStream inputStream = ExportUtils.class.getClassLoader().getResourceAsStream(fileName);
-        return inputStream;
-    }
-
-    /**
-     * 获取上级目录
-     * 
-     * @param path
-     * @return
-     */
-    public static String getParentPath(String path) {
-        return path.substring(0, path.lastIndexOf(IOUtils.DIR_SEPARATOR_UNIX));
-    }
-
-    /**
      * 复制文件
      */
     public static void copyFile() {
+
+        // 删除已经导出的文件夹
+        deleteDir();
         File realFile = null;
         File targetFile = null;
         for (String filePath : Consts.fileList) {
             filePath = StringUtils.trim(filePath);
+            // 是空值或者有#注释的跳过
             if (StringUtils.isEmpty(filePath) || StringUtils.startsWith(filePath, "#")) {
                 continue;
             }
@@ -105,6 +88,27 @@ public class ExportUtils {
     }
 
     /**
+     * 获取文件流
+     * 
+     * @param fileName
+     * @return
+     */
+    public static InputStream getFileInputStream(String fileName) {
+        InputStream inputStream = ExportUtils.class.getClassLoader().getResourceAsStream(fileName);
+        return inputStream;
+    }
+
+    /**
+     * 获取上级目录
+     * 
+     * @param path
+     * @return
+     */
+    public static String getParentPath(String path) {
+        return path.substring(0, path.lastIndexOf(IOUtils.DIR_SEPARATOR_UNIX));
+    }
+
+    /**
      * 获取class文件和内部类
      * 
      * @param parentPath
@@ -133,4 +137,14 @@ public class ExportUtils {
         return path.substring(path.lastIndexOf("/") + 1, path.lastIndexOf("."));
     }
 
+    /**
+     * 删除文件
+     */
+    public static void deleteDir() {
+        try {
+            FileUtils.deleteDirectory(new File(Consts.TARGET));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
