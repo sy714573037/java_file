@@ -12,6 +12,8 @@ import org.apache.commons.lang3.StringUtils;
 import com.google.common.collect.Lists;
 
 /**
+ * 导出工具类
+ * 
  * @author shuyi
  * @date 2018/09/13
  */
@@ -44,16 +46,16 @@ public class ExportUtils {
     public static void copyFile() {
         File realFile = null;
         File targetFile = null;
-        for (String filePath : FileMain.fileList) {
+        for (String filePath : Consts.fileList) {
             filePath = StringUtils.trim(filePath);
             if (StringUtils.isEmpty(filePath) || StringUtils.startsWith(filePath, "#")) {
                 continue;
             }
             // 文件实际路径
-            String realPath = FileMain.WORKSPACE + filePath;
+            String realPath = Consts.WORKSPACE + filePath;
             realFile = new File(realPath);
             // 目标文件路径
-            String targetPath = FileMain.TARGET + filePath;
+            String targetPath = Consts.TARGET + filePath;
             // 父目录
             String parentPath = ExportUtils.getParentPath(realPath);
             // 创建目标文件夹
@@ -64,7 +66,7 @@ public class ExportUtils {
                 targetFile.mkdirs();
                 // 复制整个文件夹的文件
                 try {
-                    if (FileMain.CLAZZ.equals(FileMain.IMPORT_TYPE)) {
+                    if (Consts.CLAZZ.equals(Consts.IMPORT_TYPE)) {
                         realPath = realPath.replace("src/main/java", "target/classes").replace(".java", ".class");
                         realFile = new File(realPath);
                     }
@@ -78,7 +80,7 @@ public class ExportUtils {
                 }
                 // 复制文件
                 try {
-                    if (FileMain.CLAZZ.equals(FileMain.IMPORT_TYPE)) {
+                    if (Consts.CLAZZ.equals(Consts.IMPORT_TYPE)) {
                         realPath = realPath.replace("src/main/java", "target/classes").replace(".java", ".class");
                         realFile = new File(realPath);
                         targetPath = targetPath.replace(".java", ".class");
