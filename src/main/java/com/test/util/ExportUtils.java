@@ -25,8 +25,11 @@ public class ExportUtils {
     public static void copyFile() {
 
         // 删除已经导出的文件夹
-        // deleteDir();
+        // ExportUtils.deleteDir();
+
+        // 实际文件
         File realFile = null;
+        // 导出的文件
         File targetFile = null;
         for (String filePath : Consts.fileList) {
             filePath = StringUtils.trim(filePath);
@@ -37,9 +40,9 @@ public class ExportUtils {
             // 文件实际路径
             String realPath = Consts.WORKSPACE + filePath;
             realFile = new File(realPath);
-            // 目标文件路径
+            // 导出文件路径
             String targetPath = Consts.TARGET + filePath;
-            // 父目录
+            // 实际文件的父目录
             String parentPath = ExportUtils.getParentPath(realPath);
             // 目标文件夹
             File targetFileDir = new File(ExportUtils.getParentPath(targetPath));
@@ -49,25 +52,28 @@ public class ExportUtils {
                 targetFile.mkdirs();
                 // 复制整个文件夹的文件
                 try {
+                    // 如果需要导出的是class文件就去找class文件
                     if (Consts.CLAZZ.equals(Consts.IMPORT_TYPE)) {
                         realPath = realPath.replace("src/main/java", "target/classes").replace(".java", ".class");
                         realFile = new File(realPath);
                     }
+                    // 复制文件到文件夹
                     FileUtils.copyDirectoryToDirectory(realFile, targetFileDir);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             } else {
-                // 复制文件
+                // 不是文件夹,复制单个文件
                 try {
                     if (Consts.CLAZZ.equals(Consts.IMPORT_TYPE)) {
                         realPath = realPath.replace("src/main/java", "target/classes").replace(".java", ".class");
                         realFile = new File(realPath);
-                        targetPath = targetPath.replace(".java", ".class");
                         if (realPath.endsWith(".class")) {
-                            // 查找父目录下的文件
-                            List<File> clazzFileList = getClazzFileList(
-                                parentPath.replace("src/main/java", "target/classes"), getFileName(realPath));
+                            // 获取目录先的class和class$x
+                            List<File> clazzFileList
+                                = ExportUtils.getClazzFileList(parentPath.replace("src/main/java", "target/classes"),
+                                    ExportUtils.getFileName(realPath));
+                            // 复制class和class$x
                             for (File file : clazzFileList) {
                                 FileUtils.copyFileToDirectory(file, targetFileDir);
                                 System.out.println(file.getPath());
