@@ -25,7 +25,7 @@ public class ExportUtils {
     public static void copyFile() {
 
         // 删除已经导出的文件夹
-        deleteDir();
+        // deleteDir();
         File realFile = null;
         File targetFile = null;
         for (String filePath : Consts.fileList) {
