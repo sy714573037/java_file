@@ -41,7 +41,7 @@ public class ExportUtils {
             String targetPath = Consts.TARGET + filePath;
             // 父目录
             String parentPath = ExportUtils.getParentPath(realPath);
-            // 创建目标文件夹
+            // 目标文件夹
             File targetFileDir = new File(ExportUtils.getParentPath(targetPath));
             // 是文件夹就复制所有文件
             if (realFile.isDirectory()) {
@@ -58,9 +58,6 @@ public class ExportUtils {
                     e.printStackTrace();
                 }
             } else {
-                if (!targetFileDir.exists()) {
-                    targetFileDir.mkdirs();
-                }
                 // 复制文件
                 try {
                     if (Consts.CLAZZ.equals(Consts.IMPORT_TYPE)) {
