@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.ClassUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.common.collect.Lists;
@@ -123,7 +124,7 @@ public class ExportUtils {
         File[] listFiles = file.listFiles();
         for (File sonFile : listFiles) {
             String sonFileName = org.springframework.util.StringUtils.delete(sonFile.getName(), ".class");
-            if (sonFileName.startsWith(fileName + "$") || sonFileName.equals(fileName)) {
+            if (sonFileName.startsWith(fileName + ClassUtils.INNER_CLASS_SEPARATOR_CHAR) || sonFileName.equals(fileName)) {
                 fileList.add(sonFile);
             }
         }
