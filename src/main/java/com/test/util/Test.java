@@ -9,7 +9,7 @@ import org.apache.commons.io.FileUtils;
 import com.google.common.collect.Lists;
 
 /**
- * 文件操作的小例子
+ * 文件操作的小例子,与导出java/class文件无关
  * 
  * @author shuyi
  * @date 2018/10/23
