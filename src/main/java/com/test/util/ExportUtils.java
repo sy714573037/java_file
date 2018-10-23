@@ -39,7 +39,7 @@ public class ExportUtils {
                 continue;
             }
             // 文件实际路径
-            String realPath = Consts.WORKSPACE + filePath;
+            String realPath = Consts.WORK_SPACE + filePath;
             realFile = new File(realPath);
             // 导出文件路径
             String targetPath = Consts.TARGET + filePath;

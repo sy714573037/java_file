@@ -37,7 +37,7 @@ public class Consts {
     public static String IMPORT_TYPE;
 
     /** 工作空间 */
-    public static String WORKSPACE;
+    public static String WORK_SPACE;
 
     /** 导出的目标文件位置 */
     public static String TARGET;
@@ -67,7 +67,7 @@ public class Consts {
             }
         }
         IMPORT_TYPE = StringUtils.lowerCase(properties.getProperty("project.importType"));
-        WORKSPACE = properties.getProperty("project.workspace");
+        WORK_SPACE = properties.getProperty("project.workspace");
         TARGET = properties.getProperty("project.target");
 
         try {
