@@ -50,17 +50,17 @@ public class Consts {
 
     static {
         InputStream filePathInputStream = ExportUtils.getFileInputStream(IMPORT_FILE_PATH);
-        InputStream exportiInputStream = ExportUtils.getFileInputStream(EXPORT_FILE_PROP);
+        InputStream exportInputStream = ExportUtils.getFileInputStream(EXPORT_FILE_PROP);
 
         Properties properties = new Properties();
         try {
-            properties.load(exportiInputStream);
+            properties.load(exportInputStream);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (Objects.nonNull(exportiInputStream)) {
+            if (Objects.nonNull(exportInputStream)) {
                 try {
-                    exportiInputStream.close();
+                    exportInputStream.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
