@@ -98,8 +98,7 @@ public class ExportUtils {
      * @return
      */
     public static InputStream getFileInputStream(String fileName) {
-        InputStream inputStream = ExportUtils.class.getClassLoader().getResourceAsStream(fileName);
-        return inputStream;
+        return Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
     }
 
     /**
@@ -124,7 +123,8 @@ public class ExportUtils {
         File[] listFiles = file.listFiles();
         for (File sonFile : listFiles) {
             String sonFileName = org.springframework.util.StringUtils.delete(sonFile.getName(), ".class");
-            if (sonFileName.startsWith(fileName + ClassUtils.INNER_CLASS_SEPARATOR_CHAR) || sonFileName.equals(fileName)) {
+            if (sonFileName.startsWith(fileName + ClassUtils.INNER_CLASS_SEPARATOR_CHAR)
+                || sonFileName.equals(fileName)) {
                 fileList.add(sonFile);
             }
         }
