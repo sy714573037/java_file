@@ -32,7 +32,7 @@ public class ExportUtils {
         File realFile = null;
         // 导出的文件
         File targetFile = null;
-        for (String filePath : Consts.fileList) {
+        for (String filePath : Consts.FILE_LIST) {
             filePath = StringUtils.trim(filePath);
             // 是空值或者有#注释的跳过
             if (StringUtils.isEmpty(filePath) || StringUtils.startsWith(filePath, "#")) {
@@ -70,7 +70,7 @@ public class ExportUtils {
                         realPath = realPath.replace("src/main/java", "target/classes").replace(".java", ".class");
                         realFile = new File(realPath);
                         if (realPath.endsWith(".class")) {
-                            // 获取目录先的class和class$x
+                            // 获取目录下的class和class$x
                             List<File> clazzFileList
                                 = ExportUtils.getClazzFileList(parentPath.replace("src/main/java", "target/classes"),
                                     ExportUtils.getFileName(realPath));

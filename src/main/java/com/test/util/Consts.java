@@ -31,7 +31,7 @@ public class Consts {
     public static String CLAZZ = "class";
 
     /** java文件路径 */
-    public static List<String> fileList;
+    public static List<String> FILE_LIST;
 
     /** 导出类型 */
     public static String IMPORT_TYPE;
@@ -71,7 +71,7 @@ public class Consts {
         TARGET = properties.getProperty("project.target");
 
         try {
-            fileList = IOUtils.readLines(filePathInputStream);
+            FILE_LIST = IOUtils.readLines(filePathInputStream);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
