@@ -38,6 +38,7 @@ public class ExportUtils {
             if (StringUtils.isEmpty(filePath) || StringUtils.startsWith(filePath, "#")) {
                 continue;
             }
+            filePath = filePath.replace("\\", "/");
             // 文件实际路径
             String realPath = Consts.WORK_SPACE + filePath;
             realFile = new File(realPath);
