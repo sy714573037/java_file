@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.ClassUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -43,7 +44,7 @@ public class ExportUtils {
             String realPath = Consts.WORK_SPACE + filePath;
             realFile = new File(realPath);
             // 导出文件路径
-            String targetPath = Consts.TARGET + filePath;
+            String targetPath = Consts.TARGET + "/" + filePath;
             // 实际文件的父目录
             String parentPath = ExportUtils.getParentPath(realPath);
             // 目标文件夹
@@ -72,8 +73,8 @@ public class ExportUtils {
                         realFile = new File(realPath);
                         if (realPath.endsWith(".class")) {
                             // 获取目录下的class和class$x
-                            List<File> clazzFileList
-                                = ExportUtils.getClazzFileList(parentPath.replace("src/main/java", "target/classes"),
+                            List<File> clazzFileList =
+                                ExportUtils.getClazzFileList(parentPath.replace("src/main/java", "target/classes"),
                                     ExportUtils.getFileName(realPath));
                             // 复制class和class$x
                             for (File file : clazzFileList) {
@@ -139,7 +140,7 @@ public class ExportUtils {
      * @return
      */
     public static String getFileName(String path) {
-        return path.substring(path.lastIndexOf(Consts.FOLDER_SEPARATOR) + 1, path.lastIndexOf(Consts.POINT_STRING));
+        return FilenameUtils.getBaseName(path);
     }
 
     /**
