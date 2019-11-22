@@ -1,4 +1,4 @@
-package com.test.util;
+package com.test.test;
 
 import com.google.common.collect.Lists;
 
