@@ -1,11 +1,11 @@
-package com.test.util;
+package com.util;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
-import com.test.consts.Consts;
+import com.consts.Consts;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;

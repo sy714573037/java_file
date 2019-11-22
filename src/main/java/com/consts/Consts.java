@@ -1,4 +1,4 @@
-package com.test.consts;
+package com.consts;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Properties;
 
-import com.test.util.ExportUtils;
+import com.util.ExportUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
