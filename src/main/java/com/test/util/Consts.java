@@ -19,7 +19,7 @@ import org.apache.commons.lang3.StringUtils;
 public class Consts {
 
     /** 需要导出的文件目录 */
-    private final static String IMPORT_FILE_PATH = "filepath.properties";
+    private final static String IMPORT_FILE_PATH = "filepath.txt";
 
     /** 导出文件的属性配置 */
     private final static String EXPORT_FILE_PROP = "export.properties";
