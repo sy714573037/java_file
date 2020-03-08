@@ -36,12 +36,10 @@
 \platform-shop\src\main\resources\com\platform\dao\AlliancePageConfigDao.xml
 \platform-shop\src\main\resources\com\platform\dao\AllianceSalesmanAreaConfigDao.xml
 \platform-shop\src\main\webapp\WEB-INF\page\shop\alliancebusiness.html
-\platform-shop\src\main\webapp\WEB-INF\page\shop\alliancebusinessbysalesman.html
 \platform-shop\src\main\webapp\WEB-INF\page\shop\alliancegensharelog.html
 \platform-shop\src\main\webapp\WEB-INF\page\shop\alliancepageconfig.html
 \platform-shop\src\main\webapp\WEB-INF\page\shop\alliancesalesmanareaconfig.html
 \platform-shop\src\main\webapp\js\shop\alliancebusiness.js
-\platform-shop\src\main\webapp\js\shop\alliancebusinessbysalesman.js
 \platform-shop\src\main\webapp\js\shop\alliancegensharelog.js
 \platform-shop\src\main\webapp\js\shop\alliancepageconfig.js
 \platform-shop\src\main\webapp\js\shop\alliancesalesmanareaconfig.js
