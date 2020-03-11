@@ -58,3 +58,9 @@
 \platform-api\src\main\resources\com\platform\dao\ApiBuyCarsReferMapper.xml
 \platform-api\src\main\java\com\platform\service\ApiBuyCarsReferService.java
 \platform-api\src\main\java\com\platform\api\ApiBuyCarsReferController.java
+
+\platform-shop\src\main\java\com\platform\entity\ImgInfoEntity.java
+\platform-shop\src\main\resources\com\platform\dao\ImgInfoDao.xml
+\platform-shop\src\main\java\com\platform\dao\ImgInfoDao.java
+\platform-shop\src\main\java\com\platform\service\ImgInfoService.java
+\platform-shop\src\main\java\com\platform\service\impl\ImgInfoServiceImpl.java
